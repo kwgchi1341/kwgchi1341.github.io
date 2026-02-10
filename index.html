@@ -40,14 +40,16 @@
       width: 120px;
       height: 120px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, .15);
-      backdrop-filter: blur(4px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
       margin: 0 auto 1.5rem;
       border: 3px solid rgba(255, 255, 255, .3);
+      overflow: hidden;
+    }
+
+    .hero .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .hero h1 {
@@ -203,13 +205,14 @@
 
   <!-- Hero -->
   <header class="hero">
-    <div class="avatar">&#x1F464;</div>
+    <div class="avatar"><img src="images/space_cat.png" alt="Kawaguchihiro" width="120" height="120"></div>
     <h1>Kawaguchihiro</h1>
   </header>
 
   <div class="container">
 
     <!-- About -->
+    <!--
     <section>
       <h2>About</h2>
       <div class="card">
@@ -218,32 +221,35 @@
         </p>
       </div>
     </section>
+    -->
 
     <!-- Skills -->
     <section>
       <h2>Skills</h2>
       <div class="skills-grid">
-        <div class="skill-tag">Software Engineering</div>
+        <div class="skill-tag">Software Engineer</div>
         <div class="skill-tag">Project Management</div>
         <div class="skill-tag">Data Analysis</div>
         <div class="skill-tag">Weather Forecaster</div>
-        <div class="skill-tag">Singer (Chorus Singer)</div>
+        <div class="skill-tag">Singer</div>
         <div class="skill-tag">Chorus Conductor</div>
-        <div class="skill-tag">Acapella Arranger</div>
         <div class="skill-tag">Acapella Composer</div>
-        <div class="skill-tag">Geophysics</div>
+        <div class="skill-tag">Acapella Arranger</div>
+        <div class="skill-tag">Master of Science in Geophysics</div>
       </div>
     </section>
 
     <!-- Experience -->
+    <!--
     <section>
       <h2>Experience</h2>
       <div class="card">
         <h3></h3>
-        <div class="period">Now</div>
+        <div class="period">Thinking...</div>
         <p></p>
       </div>
     </section>
+    -->
 
     <!-- Contact -->
     <section>
