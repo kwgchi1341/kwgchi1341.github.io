@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About</title>
+  <title>Kawaguchihiro - Poetry</title>
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -12,26 +12,26 @@
     }
 
     :root {
-      --primary: #2563eb;
-      --primary-light: #3b82f6;
-      --bg: #f8fafc;
-      --card-bg: #ffffff;
-      --text: #1e293b;
-      --text-muted: #64748b;
-      --border: #e2e8f0;
+      --primary: #8b7355;
+      --bg: #f5edd6;
+      --card-bg: rgba(255, 255, 255, .6);
+      --text: #4a3f2f;
+      --text-muted: #7a6f5f;
+      --border: rgba(74, 63, 47, .15);
     }
 
     body {
-      font-family: "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif;
-      background: var(--bg);
+      font-family: "Noto Serif JP", "Yu Mincho", "Hiragino Mincho ProN", serif;
+      background: url("images/back_ground.jpg") center / cover;
+      background-color: var(--bg);
       color: var(--text);
       line-height: 1.7;
     }
 
     /* ── Hero ── */
     .hero {
-      background: linear-gradient(135deg, var(--primary) 0%, #7c3aed 100%);
-      color: #fff;
+      background: transparent;
+      color: var(--text);
       text-align: center;
       padding: 5rem 1.5rem 4rem;
     }
@@ -41,7 +41,7 @@
       height: 120px;
       border-radius: 50%;
       margin: 0 auto 1.5rem;
-      border: 3px solid rgba(255, 255, 255, .3);
+      border: 3px solid rgba(74, 63, 47, .2);
       overflow: hidden;
     }
 
@@ -54,13 +54,14 @@
 
     .hero h1 {
       font-size: 2rem;
-      font-weight: 700;
+      font-weight: 400;
+      letter-spacing: .1em;
       margin-bottom: .5rem;
     }
 
     .hero p {
       font-size: 1.1rem;
-      opacity: .9;
+      color: var(--text-muted);
     }
 
     /* ── Container ── */
@@ -84,94 +85,71 @@
       display: inline-block;
     }
 
-    /* ── Cards ── */
-    .card {
+    /* ── Gallery Grid ── */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .poem-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 1rem;
+      overflow: hidden;
       box-shadow: 0 1px 3px rgba(0, 0, 0, .04);
-      transition: box-shadow .2s;
+      transition: box-shadow .2s, transform .2s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
 
-    .card:hover {
-      box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+    .poem-card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .1);
+      transform: translateY(-2px);
     }
 
-    .card h3 {
-      font-size: 1.1rem;
-      margin-bottom: .25rem;
+    .poem-card .thumbnail {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      background: linear-gradient(135deg, #d4c5a0, #b8a87a);
     }
 
-    .card .period {
-      font-size: .85rem;
-      color: var(--text-muted);
+    .poem-card .thumbnail-placeholder {
+      width: 100%;
+      height: 180px;
+      background: linear-gradient(135deg, #d4c5a0, #b8a87a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(74, 63, 47, .4);
+      font-size: 2.5rem;
+    }
+
+    .poem-card .card-body {
+      padding: 1.2rem 1.5rem;
+    }
+
+    .poem-card h3 {
+      font-family: "Noto Serif JP", "Yu Mincho", serif;
+      font-size: 1.15rem;
+      font-weight: 600;
       margin-bottom: .5rem;
     }
 
-    .card p {
+    .poem-card .excerpt {
+      font-size: .9rem;
       color: var(--text-muted);
-    }
-
-    /* ── Skills ── */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: .75rem;
-    }
-
-    .skill-tag {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: .6rem 1rem;
-      text-align: center;
-      font-size: .95rem;
-      font-weight: 500;
-      transition: border-color .2s, background .2s;
-    }
-
-    .skill-tag:hover {
-      border-color: var(--primary-light);
-      background: #eff6ff;
-    }
-
-    /* ── Contact ── */
-    .contact-list {
-      list-style: none;
-    }
-
-    .contact-list li {
-      padding: .6rem 0;
-      border-bottom: 1px solid var(--border);
-      color: var(--text-muted);
-    }
-
-    .contact-list li:last-child {
-      border-bottom: none;
-    }
-
-    .contact-list li strong {
-      color: var(--text);
-      display: inline-block;
-      min-width: 80px;
-    }
-
-    .contact-list a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-
-    .contact-list a:hover {
-      text-decoration: underline;
+      line-height: 1.6;
     }
 
     /* ── Footer ── */
     footer {
       text-align: center;
       padding: 2rem 1rem;
-      color: var(--text-muted);
+      color: rgba(74, 63, 47, .4);
       font-size: .85rem;
     }
 
@@ -188,15 +166,14 @@
       .hero .avatar {
         width: 96px;
         height: 96px;
-        font-size: 2.4rem;
       }
 
       .container {
         padding: 1.5rem 1rem;
       }
 
-      .skills-grid {
-        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+      .gallery {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -207,64 +184,42 @@
   <header class="hero">
     <div class="avatar"><img src="images/space_cat.png" alt="Kawaguchihiro" width="120" height="120"></div>
     <h1>Kawaguchihiro</h1>
+    <p>Poetry</p>
   </header>
 
   <div class="container">
 
-    <!-- About -->
-    <!--
+    <!-- Poems Gallery -->
     <section>
-      <h2>About</h2>
-      <div class="card">
-        <p>
-          Thinking...
-        </p>
-      </div>
-    </section>
-    -->
-
-    <!-- Skills -->
-    <section>
-      <h2>Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-tag">Software Engineer</div>
-        <div class="skill-tag">Project Management</div>
-        <div class="skill-tag">Data Analysis</div>
-        <div class="skill-tag">Weather Forecaster</div>
-        <div class="skill-tag">Singer</div>
-        <div class="skill-tag">Chorus Conductor</div>
-        <div class="skill-tag">Acapella Composer</div>
-        <div class="skill-tag">Acapella Arranger</div>
-        <div class="skill-tag">Master of Science in Geophysics</div>
-      </div>
-    </section>
-
-    <!-- Experience -->
-    <!--
-    <section>
-      <h2>Experience</h2>
-      <div class="card">
-        <h3></h3>
-        <div class="period">Thinking...</div>
-        <p></p>
-      </div>
-    </section>
-    -->
-
-    <!-- Contact -->
-    <section>
-      <h2>Contact</h2>
-      <div class="card">
-        <ul class="contact-list">
-          <li><strong>Email</strong> kwgchiro.1341@gmail.com</li>
-          <li><strong>GitHub</strong> <a href="#">github.com/kwgchi1341</a></li>
-        </ul>
+      <h2>Poems</h2>
+      <div class="gallery" id="gallery">
+        <!-- poems.json から自動生成 -->
       </div>
     </section>
 
   </div>
 
   <footer>&copy; 2026 Kawaguchihiro</footer>
+
+  <script>
+    fetch('poems/poems.json')
+      .then(res => res.json())
+      .then(poems => {
+        const gallery = document.getElementById('gallery');
+        poems.forEach(p => {
+          const a = document.createElement('a');
+          a.href = `poems/poem.html?id=${p.id}`;
+          a.className = 'poem-card';
+          a.innerHTML = `
+            <div class="thumbnail-placeholder">${p.emoji}</div>
+            <div class="card-body">
+              <h3>${p.title}</h3>
+              <p class="excerpt">${p.excerpt}</p>
+            </div>`;
+          gallery.appendChild(a);
+        });
+      });
+  </script>
 
 </body>
 </html>
