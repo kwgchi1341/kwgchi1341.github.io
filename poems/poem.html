@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading... - Kawaguchihiro</title>
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Noto Serif JP", "Yu Mincho", "Hiragino Mincho ProN", serif;
+      color: #4a3f2f;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+      background: url("../images/back_ground.jpg") center / cover;
+      background-color: #f5edd6;
+    }
+
+    /* ── Background ── */
+    .bg {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background-position: center bottom;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    /* ── Navigation ── */
+    .back-link {
+      position: fixed;
+      top: 1.5rem;
+      left: 1.5rem;
+      color: rgba(74, 63, 47, .6);
+      text-decoration: none;
+      font-size: .9rem;
+      z-index: 10;
+      transition: color .2s;
+    }
+
+    .back-link:hover {
+      color: #4a3f2f;
+    }
+
+    /* ── Poem ── */
+    .poem-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 4rem 1.5rem;
+    }
+
+    .poem {
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .poem h1 {
+      font-size: 2rem;
+      font-weight: 400;
+      letter-spacing: .15em;
+      margin-bottom: 3rem;
+      text-shadow: none;
+    }
+
+    .stanza {
+      margin-bottom: 2.5rem;
+      line-height: 2.2;
+      font-size: 1.1rem;
+      letter-spacing: .08em;
+      text-shadow: none;
+    }
+
+    .stanza:last-of-type {
+      margin-bottom: 0;
+    }
+
+    /* ── Media links ── */
+    .media-links {
+      margin-top: 3rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .media-links a {
+      color: rgba(74, 63, 47, .6);
+      text-decoration: none;
+      font-size: .9rem;
+      padding: .4rem 1rem;
+      border: 1px solid rgba(74, 63, 47, .2);
+      border-radius: 4px;
+      transition: color .2s, border-color .2s;
+    }
+
+    .media-links a:hover {
+      color: #4a3f2f;
+      border-color: rgba(74, 63, 47, .5);
+    }
+
+    /* ── Audio player ── */
+    .audio-player {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .audio-player audio {
+      max-width: 100%;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .poem h1 {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .stanza {
+        font-size: 1rem;
+        line-height: 2;
+      }
+
+      .poem-wrapper {
+        padding: 3rem 1.2rem;
+      }
+
+      .back-link {
+        top: 1rem;
+        left: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg" id="bg"></div>
+
+  <a href="../index.html" class="back-link">&larr; Back</a>
+
+  <div class="poem-wrapper">
+    <article class="poem" id="poem-content">
+      <!-- poems.json + テキストファイルから読み込まれます -->
+    </article>
+  </div>
+
+  <script>
+    const poemId = new URLSearchParams(location.search).get('id');
+    if (!poemId) { location.href = '../index.html'; }
+
+    fetch('poems.json')
+      .then(res => res.json())
+      .then(poems => {
+        const meta = poems.find(p => p.id === poemId);
+        if (!meta) { location.href = '../index.html'; return; }
+
+        // 背景画像
+        document.getElementById('bg').style.backgroundImage = `url("${meta.bg}")`;
+
+        // テキスト読み込み
+        return fetch(`texts/${poemId}.txt`).then(res => res.text()).then(text => {
+          const lines = text.split('\n');
+          const title = lines[0].trim();
+          const body = lines.slice(1).join('\n').trim();
+
+          // タイトル
+          const h1 = document.createElement('h1');
+          h1.textContent = title;
+          document.title = title + ' - Kawaguchihiro';
+
+          // 段落
+          const stanzas = body.split(/\n\s*\n/);
+          const article = document.getElementById('poem-content');
+          article.appendChild(h1);
+
+          stanzas.forEach(stanza => {
+            const div = document.createElement('div');
+            div.className = 'stanza';
+            div.innerHTML = stanza.trim().split('\n').map(l => l.trim()).join('<br>');
+            article.appendChild(div);
+          });
+
+          // メディアリンク
+          const links = [];
+          if (meta.audio) {
+            const player = document.createElement('div');
+            player.className = 'audio-player';
+            player.innerHTML = `<audio controls src="${meta.audio}"></audio>`;
+            article.appendChild(player);
+          }
+          if (meta.youtube) {
+            const div = document.createElement('div');
+            div.className = 'media-links';
+            div.innerHTML = `<a href="${meta.youtube}" target="_blank" rel="noopener">&#9654; YouTube</a>`;
+            article.appendChild(div);
+          }
+        });
+      });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "utabito",
+    "title": "歌旅人（うたびと）",
+    "emoji": "🎶",
+    "excerpt": "彼の前には道はない…",
+    "bg": "images/utabito-bg.jpg"
+  },
+  {
+    "id": "manbou-rocket",
+    "title": "マンボウロケット",
+    "emoji": "🚀",
+    "excerpt": "空を夢見て…",
+    "bg": "images/manbou-rocket-bg.jpg"
+  },
+  {
+    "id": "kara-no-naka",
+    "title": "殻の中の宇宙",
+    "emoji": "✨",
+    "excerpt": "幾重にも重なる殻の中に…",
+    "bg": "images/kara-no-naka-bg.jpg"
+  }
+]
