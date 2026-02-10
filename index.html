@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自己紹介</title>
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #2563eb;
+      --primary-light: #3b82f6;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+    }
+
+    body {
+      font-family: "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, #7c3aed 100%);
+      color: #fff;
+      text-align: center;
+      padding: 5rem 1.5rem 4rem;
+    }
+
+    .hero .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .15);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      margin: 0 auto 1.5rem;
+      border: 3px solid rgba(255, 255, 255, .3);
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: .5rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      opacity: .9;
+    }
+
+    /* ── Container ── */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    /* ── Section ── */
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    section h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      padding-bottom: .5rem;
+      border-bottom: 2px solid var(--primary);
+      display: inline-block;
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .04);
+      transition: box-shadow .2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: .25rem;
+    }
+
+    .card .period {
+      font-size: .85rem;
+      color: var(--text-muted);
+      margin-bottom: .5rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+    }
+
+    /* ── Skills ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: .75rem;
+    }
+
+    .skill-tag {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: .6rem 1rem;
+      text-align: center;
+      font-size: .95rem;
+      font-weight: 500;
+      transition: border-color .2s, background .2s;
+    }
+
+    .skill-tag:hover {
+      border-color: var(--primary-light);
+      background: #eff6ff;
+    }
+
+    /* ── Contact ── */
+    .contact-list {
+      list-style: none;
+    }
+
+    .contact-list li {
+      padding: .6rem 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+
+    .contact-list li:last-child {
+      border-bottom: none;
+    }
+
+    .contact-list li strong {
+      color: var(--text);
+      display: inline-block;
+      min-width: 80px;
+    }
+
+    .contact-list a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .contact-list a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--text-muted);
+      font-size: .85rem;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .hero {
+        padding: 3.5rem 1rem 2.5rem;
+      }
+
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+
+      .hero .avatar {
+        width: 96px;
+        height: 96px;
+        font-size: 2.4rem;
+      }
+
+      .container {
+        padding: 1.5rem 1rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="avatar">&#x1F464;</div>
+    <h1>Hiro Kawaguchi (かわぐちひろ)</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- About -->
+    <section>
+      <h2>About</h2>
+      <div class="card">
+        <p>
+          Thinking...
+        </p>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section>
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-tag">Software Engineering</div>
+        <div class="skill-tag">Project Management</div>
+        <div class="skill-tag">Data Analysis</div>
+        <div class="skill-tag">Weather Forecaster</div>
+        <div class="skill-tag">Singer (Chorus Singer)</div>
+        <div class="skill-tag">Chorus Conductor</div>
+        <div class="skill-tag">Acapella Arranger</div>
+        <div class="skill-tag">Acapella Composer</div>
+        <div class="skill-tag">Geophysics</div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section>
+      <h2>Experience</h2>
+      <div class="card">
+        <h3></h3>
+        <div class="period">Now</div>
+        <p></p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section>
+      <h2>Contact</h2>
+      <div class="card">
+        <ul class="contact-list">
+          <li><strong>Email</strong> kwgchiro.1341@gmail.com</li>
+          <li><strong>GitHub</strong> <a href="#">github.com/kwgchi1341</a></li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>&copy; 2026 Hiro Kawaguchi</footer>
+
+</body>
+</html>
