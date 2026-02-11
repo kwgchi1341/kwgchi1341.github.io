@@ -37,6 +37,7 @@
     }
 
     .hero .avatar {
+      display: block;
       width: 120px;
       height: 120px;
       border-radius: 50%;
@@ -155,6 +156,41 @@
       line-height: 1.6;
     }
 
+    /* ── Photo Gallery ── */
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .photo-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .04);
+      transition: box-shadow .2s, transform .2s;
+    }
+
+    .photo-card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .1);
+      transform: translateY(-2px);
+    }
+
+    .photo-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-card .caption {
+      padding: .6rem 1rem;
+      font-size: .85rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
     /* ── Footer ── */
     footer {
       text-align: center;
@@ -185,6 +221,10 @@
       .gallery {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      .photo-gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   </style>
 </head>
@@ -192,8 +232,8 @@
 
   <!-- Hero -->
   <header class="hero">
-    <div class="avatar"><img src="images/space_cat.png" alt="Kawaguchihiro" width="120" height="120"></div>
-    <h1>Kawaguchihiro Labo</h1>
+    <a href="about.html" class="avatar"><img src="images/space_cat.png" alt="Kawaguchihiro" width="120" height="120"></a>
+    <h1>K-Labo</h1>
   </header>
 
   <div class="container">
@@ -204,6 +244,12 @@
       <div class="gallery" id="gallery">
         <!-- poems.json から自動生成 -->
       </div>
+    </section>
+
+    <!-- Photos Gallery -->
+    <section>
+      <h2>Photos</h2>
+      <p style="color: var(--text-muted); font-size: .95rem;">準備中…</p>
     </section>
 
   </div>
