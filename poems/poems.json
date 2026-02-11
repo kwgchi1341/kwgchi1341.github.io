@@ -19,5 +19,75 @@
     "emoji": "✨",
     "excerpt": "幾重にも重なる殻の中に…",
     "bg": "images/kara-no-naka-bg.jpg"
+  },
+  {
+    "id": "yoursong-mysong",
+    "title": "キミノウタ　ボクノウタ",
+    "emoji": "🎵",
+    "excerpt": "キミがうたうキミノウタ…",
+    "bg": "images/yoursong-mysong-bg.jpg"
+  },
+  {
+    "id": "katamichi-rasen",
+    "title": "片道螺旋",
+    "emoji": "🌀",
+    "excerpt": "どこまでもどこまでも廻り続ける愛こそ望め…",
+    "bg": "images/katamichi-rasen-bg.jpg"
+  },
+  {
+    "id": "singing-doll",
+    "title": "歌う人形",
+    "emoji": "🎭",
+    "excerpt": "まるで歌っているような精緻なつくりの置き人形…",
+    "bg": "images/singing-doll-bg.jpg"
+  },
+  {
+    "id": "utakaze",
+    "title": "ウタカゼ",
+    "emoji": "🌬️",
+    "excerpt": "歌声　風に乗って　遠く響き行け…",
+    "bg": "images/utakaze-bg.jpg"
+  },
+  {
+    "id": "utamachi-doll",
+    "title": "歌待ち人形",
+    "emoji": "🪆",
+    "excerpt": "せわしない日々の中で歌を忘れていく…",
+    "bg": "images/utamachi-doll-bg.jpg"
+  },
+  {
+    "id": "yatagarasu",
+    "title": "ヤタガラス",
+    "emoji": "🐦‍⬛",
+    "excerpt": "クマノの森　木々深き森…",
+    "bg": "images/yatagarasu-bg.jpg"
+  },
+  {
+    "id": "pinpon",
+    "title": "ピンポン球",
+    "emoji": "🏓",
+    "excerpt": "曾祖父の時代、人類はピンポン球の上にへばりついていた…",
+    "bg": "../images/back_ground.jpg"
+  },
+  {
+    "id": "kaze-no-aru",
+    "title": "風のある風景",
+    "emoji": "🍃",
+    "excerpt": "書きたい気持ちはあるけれど…",
+    "bg": "../images/back_ground.jpg"
+  },
+  {
+    "id": "zero-jikuu",
+    "title": "ゼロ時空",
+    "emoji": "🕳️",
+    "excerpt": "地球が平らだった頃…",
+    "bg": "../images/back_ground.jpg"
+  },
+  {
+    "id": "inochi-omosa",
+    "title": "いのちの重さ",
+    "emoji": "⚫",
+    "excerpt": "星は一生を終えるとブラックホールとなるらしい…",
+    "bg": "../images/back_ground.jpg"
   }
 ]

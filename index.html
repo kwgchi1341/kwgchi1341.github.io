@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kawaguchihiro - Poetry</title>
+  <title>Kawaguchihiro - Labo</title>
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -21,7 +21,7 @@
     }
 
     body {
-      font-family: "Noto Serif JP", "Yu Mincho", "Hiragino Mincho ProN", serif;
+      font-family: "Noto Sans JP", "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
       background: url("images/back_ground.jpg") center / cover;
       background-color: var(--bg);
       color: var(--text);
@@ -50,6 +50,11 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: filter .3s;
+    }
+
+    .hero .avatar:hover img {
+      filter: invert(1);
     }
 
     .hero h1 {
@@ -66,7 +71,7 @@
 
     /* ── Container ── */
     .container {
-      max-width: 900px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 2.5rem 1.5rem;
     }
@@ -88,14 +93,14 @@
     /* ── Gallery Grid ── */
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
     }
 
     .poem-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 1px 3px rgba(0, 0, 0, .04);
       transition: box-shadow .2s, transform .2s;
@@ -111,7 +116,7 @@
 
     .poem-card .thumbnail {
       width: 100%;
-      height: 180px;
+      height: 120px;
       object-fit: cover;
       display: block;
       background: linear-gradient(135deg, #d4c5a0, #b8a87a);
@@ -119,28 +124,33 @@
 
     .poem-card .thumbnail-placeholder {
       width: 100%;
-      height: 180px;
+      height: 120px;
       background: linear-gradient(135deg, #d4c5a0, #b8a87a);
       display: flex;
       align-items: center;
       justify-content: center;
       color: rgba(74, 63, 47, .4);
-      font-size: 2.5rem;
+      font-size: 2rem;
+      transition: filter .3s;
+    }
+
+    .poem-card:hover .thumbnail-placeholder {
+      filter: invert(1);
     }
 
     .poem-card .card-body {
-      padding: 1.2rem 1.5rem;
+      padding: .8rem 1rem;
     }
 
     .poem-card h3 {
-      font-family: "Noto Serif JP", "Yu Mincho", serif;
-      font-size: 1.15rem;
+      font-family: "Noto Sans JP", "Yu Gothic", sans-serif;
+      font-size: .95rem;
       font-weight: 600;
       margin-bottom: .5rem;
     }
 
     .poem-card .excerpt {
-      font-size: .9rem;
+      font-size: .8rem;
       color: var(--text-muted);
       line-height: 1.6;
     }
@@ -173,7 +183,7 @@
       }
 
       .gallery {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
       }
     }
   </style>
@@ -183,8 +193,7 @@
   <!-- Hero -->
   <header class="hero">
     <div class="avatar"><img src="images/space_cat.png" alt="Kawaguchihiro" width="120" height="120"></div>
-    <h1>Kawaguchihiro</h1>
-    <p>Poetry</p>
+    <h1>Kawaguchihiro Labo</h1>
   </header>
 
   <div class="container">
